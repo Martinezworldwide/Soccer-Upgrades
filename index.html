@@ -55,61 +55,36 @@
             margin-top: 0;
             margin-bottom: 10px;
         }
-        /* Modal Styles */
-        .modal {
+        /* Full-Page Modal Styles */
+        .full-page-modal {
             display: none;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
+            background-color: white;
+            z-index: 1000;
+            overflow-y: auto;
+        }
+        .loading-message {
+            display: flex;
             justify-content: center;
             align-items: center;
-            z-index: 1000;
-        }
-        .modal-content {
-            width: 300px;
-            padding: 20px;
-            background-color: white;
-            border-radius: 10px;
-            text-align: center;
-        }
-        .modal-content h3 {
-            margin-top: 0;
-            margin-bottom: 10px;
-        }
-        .close-button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #004080;
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-        .close-button:hover {
-            background-color: #0066cc;
+            height: 100%;
+            font-size: 24px;
+            color: #004080;
         }
     </style>
     <script>
-        function openModal(url) {
-            const modal = document.getElementById('modal');
-            const redirectButton = document.getElementById('redirect-button');
+        function openFullPage(url) {
+            const modal = document.getElementById('full-page-modal');
+            modal.style.display = 'block';
 
-            // Show the modal
-            modal.style.display = 'flex';
-
-            // Set the redirection URL
-            redirectButton.onclick = function() {
-                window.open(url, 'popup', 'width=800,height=600,scrollbars=yes,resizable=yes');
-                closeModal();
-            };
-        }
-
-        function closeModal() {
-            const modal = document.getElementById('modal');
-            modal.style.display = 'none';
+            // Simulate a loading message before redirect
+            setTimeout(() => {
+                window.location.href = url;
+            }, 1000); // Adjust delay as needed
         }
     </script>
 </head>
@@ -126,28 +101,24 @@
 
         <!-- Soccer Garage -->
         <p><strong>Soccer Garage</strong>: Offers a variety of soccer gear, from cleats to apparel, with competitive pricing and frequent sales.</p>
-        <button class="button" onclick="openModal('https://martinezworldwide.github.io/url-shortener/sg.html')">Visit Soccer Garage</button>
+        <button class="button" onclick="openFullPage('https://martinezworldwide.github.io/url-shortener/sg.html')">Visit Soccer Garage</button>
 
         <!-- US Soccer Store -->
         <p><strong>US Soccer Store</strong>: The official store for US Soccer merchandise, including jerseys, training gear, and fan accessories.</p>
-        <button class="button" onclick="openModal('https://martinezworldwide.github.io/url-shortener/uss')">Visit US Soccer Store</button>
+        <button class="button" onclick="openFullPage('https://martinezworldwide.github.io/url-shortener/uss')">Visit US Soccer Store</button>
 
         <!-- Soccer.com -->
         <p><strong>Soccer.com</strong>: Known for its wide selection of soccer shoes, training gear, and personalized jerseys for all ages.</p>
-        <button class="button" onclick="openModal('https://martinezworldwide.github.io/url-shortener/sc')">Visit Soccer.com</button>
+        <button class="button" onclick="openFullPage('https://martinezworldwide.github.io/url-shortener/sc')">Visit Soccer.com</button>
 
         <!-- World Soccer Shop -->
         <p><strong>World Soccer Shop</strong>: Offers global team merchandise, lifestyle gear, and exclusive collections from top soccer brands.</p>
-        <button class="button" onclick="openModal('https://martinezworldwide.github.io/url-shortener/wss')">Visit World Soccer Shop</button>
+        <button class="button" onclick="openFullPage('https://martinezworldwide.github.io/url-shortener/wss')">Visit World Soccer Shop</button>
     </div>
 
-    <!-- Modal for Pop-up -->
-    <div id="modal" class="modal">
-        <div class="modal-content">
-            <h3>Redirecting...</h3>
-            <p>You will be redirected to the selected store.</p>
-            <button id="redirect-button" class="close-button">Proceed</button>
-        </div>
+    <!-- Full-Page Modal -->
+    <div id="full-page-modal" class="full-page-modal">
+        <div class="loading-message">Loading, please wait...</div>
     </div>
 </body>
 </html>
