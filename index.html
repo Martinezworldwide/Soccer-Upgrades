@@ -61,12 +61,15 @@
             position: fixed;
             top: 50px;
             left: 50px;
-            width: 300px;
+            width: 80%;
+            height: 80%;
             background-color: white;
             border: 2px solid #004080;
             border-radius: 10px;
             z-index: 1000;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            resize: both;
         }
         .modal-header {
             background-color: #004080;
@@ -90,17 +93,9 @@
             border-radius: 5px;
         }
         .modal-body {
-            padding: 20px;
-            text-align: center;
-        }
-        .modal-body button {
-            margin-top: 10px;
-            padding: 10px 20px;
-            background-color: #004080;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
+            width: 100%;
+            height: calc(100% - 40px);
+            overflow: hidden;
         }
     </style>
     <script>
@@ -110,16 +105,18 @@
 
         function openModal(url) {
             const modal = document.getElementById('modal');
-            const proceedButton = document.getElementById('proceed-button');
+            const externalWindow = window.open(url, 'popup', 'width=800,height=600,scrollbars=yes,resizable=yes');
 
             // Show the modal
             modal.style.display = 'block';
 
-            // Set the redirect URL for the pop-up window
-            proceedButton.onclick = function() {
-                window.open(url, 'popup', 'width=800,height=600,scrollbars=yes,resizable=yes');
-                closeModal();
-            };
+            // Close the modal if the pop-up is closed
+            const checkPopUp = setInterval(() => {
+                if (externalWindow.closed) {
+                    closeModal();
+                    clearInterval(checkPopUp);
+                }
+            }, 500);
         }
 
         function closeModal() {
@@ -180,13 +177,13 @@
     <!-- Draggable Modal -->
     <div id="modal" class="modal">
         <div class="modal-header" onmousedown="startDrag(event)">
-            <h3>Redirecting...</h3>
+            <h3>External Link Loading...</h3>
             <button class="close-button" onclick="closeModal()">X</button>
         </div>
         <div class="modal-body">
-            <p>You will be redirected to the external link.</p>
-            <button id="proceed-button">Proceed</button>
+            <p>The external website is opening in a new window. If the window is blocked, please allow pop-ups.</p>
         </div>
     </div>
 </body>
 </html>
+
