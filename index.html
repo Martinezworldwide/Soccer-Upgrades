@@ -57,7 +57,10 @@
         }
     </style>
     <script>
-        function openPopup(url) {
+        function openPopup(encodedUrl) {
+            // Decode the Base64 URL
+            const url = atob(encodedUrl);
+            // Open in a new window
             window.open(url, '_blank', 'width=800,height=600');
         }
     </script>
@@ -75,20 +78,19 @@
 
         <!-- Soccer Garage -->
         <p><strong>Soccer Garage</strong>: Offers a variety of soccer gear, from cleats to apparel, with competitive pricing and frequent sales.</p>
-        <button class="button" onclick="openPopup('https://sovrn.co/5abl8yk')">Visit Soccer Garage</button>
+        <button class="button" onclick="openPopup('aHR0cHM6Ly9zb3Zybi5jby81YWJsOHlr')">Visit Soccer Garage</button>
 
         <!-- US Soccer Store -->
         <p><strong>US Soccer Store</strong>: The official store for US Soccer merchandise, including jerseys, training gear, and fan accessories.</p>
-        <button class="button" onclick="openPopup('https://sovrn.co/2dtem34')">Visit US Soccer Store</button>
+        <button class="button" onclick="openPopup('aHR0cHM6Ly9zb3Zybi5jby8yZHRlbTM0')">Visit US Soccer Store</button>
 
         <!-- Soccer.com -->
         <p><strong>Soccer.com</strong>: Known for its wide selection of soccer shoes, training gear, and personalized jerseys for all ages.</p>
-        <button class="button" onclick="openPopup('https://sovrn.co/cigj1qo')">Visit Soccer.com</button>
+        <button class="button" onclick="openPopup('aHR0cHM6Ly9zb3Zybi5jby9jaWdqMXFv')">Visit Soccer.com</button>
 
         <!-- World Soccer Shop -->
         <p><strong>World Soccer Shop</strong>: Offers global team merchandise, lifestyle gear, and exclusive collections from top soccer brands.</p>
-        <button class="button" onclick="openPopup('https://sovrn.co/9smxc6y')">Visit World Soccer Shop</button>
+        <button class="button" onclick="openPopup('aHR0cHM6Ly9zb3Zybi5jby85c214YzZ5')">Visit World Soccer Shop</button>
     </div>
 </body>
 </html>
-
