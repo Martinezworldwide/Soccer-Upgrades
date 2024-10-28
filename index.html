@@ -50,7 +50,31 @@
     <nav>
         <a href="forums.html">Go to Forums</a>
     </nav>
+<script>
+    async function loadIframe() {
+        const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+        const targetUrl = 'https://sovrn.co/cigj1qo';
 
+        try {
+            const response = await fetch(proxyUrl + targetUrl, {
+                headers: {
+                    'Origin': window.location.origin,
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
+            });
+
+            if (response.ok) {
+                document.getElementById('soccer-iframe').src = proxyUrl + targetUrl;
+            } else {
+                console.error('Failed to load content');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    }
+
+    window.onload = loadIframe;
+</script>
    <iframe 
     src="https://cors-anywhere.herokuapp.com/https://sovrn.co/cigj1qo" 
     title="Soccer.com Store" 
