@@ -30,9 +30,13 @@
         }
     </style>
     <script>
-        function openMinimizedTab(url) {
-            // Open a small-sized window
-            window.open(url, 'popupWindow', 'width=600,height=400,left=200,top=200');
+        function openNewWindow(url) {
+            // Open a new window with specific dimensions and position
+            window.open(
+                url,
+                'popupWindow',
+                'width=600,height=400,toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,left=200,top=200'
+            );
         }
     </script>
 </head>
@@ -42,17 +46,16 @@
         <p>Explore Top Soccer Stores:</p>
 
         <!-- Soccer Garage -->
-        <button class="button" onclick="openMinimizedTab('https://martinezworldwide.github.io/url-shortener/sg.html')">Visit Soccer Garage</button>
+        <button class="button" onclick="openNewWindow('https://martinezworldwide.github.io/url-shortener/sg.html')">Visit Soccer Garage</button>
 
         <!-- US Soccer Store -->
-        <button class="button" onclick="openMinimizedTab('https://martinezworldwide.github.io/url-shortener/uss')">Visit US Soccer Store</button>
+        <button class="button" onclick="openNewWindow('https://martinezworldwide.github.io/url-shortener/uss')">Visit US Soccer Store</button>
 
         <!-- Soccer.com -->
-        <button class="button" onclick="openMinimizedTab('https://martinezworldwide.github.io/url-shortener/sc')">Visit Soccer.com</button>
+        <button class="button" onclick="openNewWindow('https://martinezworldwide.github.io/url-shortener/sc')">Visit Soccer.com</button>
 
         <!-- World Soccer Shop -->
-        <button class="button" onclick="openMinimizedTab('https://martinezworldwide.github.io/url-shortener/wss')">Visit World Soccer Shop</button>
+        <button class="button" onclick="openNewWindow('https://martinezworldwide.github.io/url-shortener/wss')">Visit World Soccer Shop</button>
     </div>
 </body>
 </html>
-
