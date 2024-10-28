@@ -11,11 +11,34 @@
             padding: 0;
             background-color: #f4f4f4;
         }
+        header {
+            background-color: #004080;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #004080;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            background-color: #0066cc;
+            border-radius: 5px;
+        }
         .container {
             padding: 20px;
             text-align: center;
         }
         .button {
+            display: block;
             margin: 10px auto;
             padding: 15px 30px;
             font-size: 16px;
@@ -28,6 +51,11 @@
         .button:hover {
             background-color: #0066cc;
         }
+        p {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        /* Draggable Modal Styles */
         .modal {
             display: none;
             position: fixed;
@@ -76,6 +104,7 @@
         }
     </style>
     <script>
+        // Draggable Modal Script
         let offsetX, offsetY;
         let isDragging = false;
 
@@ -83,11 +112,7 @@
             const modal = document.getElementById('modal');
             const iframe = document.getElementById('modal-iframe');
 
-            // Check if the iframe is allowed
-            iframe.onerror = function() {
-                alert('Failed to load the iframe. Check if the site is blocking it.');
-            };
-
+            // Show the modal and load the external page in the iframe
             modal.style.display = 'block';
             iframe.src = url;
         }
@@ -95,6 +120,8 @@
         function closeModal() {
             const modal = document.getElementById('modal');
             const iframe = document.getElementById('modal-iframe');
+
+            // Hide the modal and clear the iframe
             modal.style.display = 'none';
             iframe.src = '';
         }
@@ -112,8 +139,8 @@
         function drag(e) {
             if (isDragging) {
                 const modal = document.getElementById('modal');
-                modal.style.left = `${e.clientX - offsetX}px`;
-                modal.style.top = `${e.clientY - offsetY}px`;
+                modal.style.left = ${e.clientX - offsetX}px;
+                modal.style.top = ${e.clientY - offsetY}px;
             }
         }
 
@@ -122,9 +149,31 @@
     </script>
 </head>
 <body>
+    <header>
+        <h1>Welcome to Soccer Upgrades!</h1>
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="forums.html">Forums</a>
+    </nav>
     <div class="container">
-        <h2>Explore Liquid Web in an iframe</h2>
-        <button class="button" onclick="openModal('https://sovrn.co/hnzhroz')">Visit Liquid Web</button>
+        <h2>Explore Top Soccer Stores</h2>
+
+        <!-- Soccer Garage -->
+        <p><strong>Soccer Garage</strong>: Offers a variety of soccer gear, from cleats to apparel, with competitive pricing and frequent sales.</p>
+        <button class="button" onclick="openModal('https://martinezworldwide.github.io/url-shortener/sg.html')">Visit Soccer Garage</button>
+
+        <!-- US Soccer Store -->
+        <p><strong>US Soccer Store</strong>: The official store for US Soccer merchandise, including jerseys, training gear, and fan accessories.</p>
+        <button class="button" onclick="openModal('https://martinezworldwide.github.io/url-shortener/uss')">Visit US Soccer Store</button>
+
+        <!-- Soccer.com -->
+        <p><strong>Soccer.com</strong>: Known for its wide selection of soccer shoes, training gear, and personalized jerseys for all ages.</p>
+        <button class="button" onclick="openModal('https://martinezworldwide.github.io/url-shortener/sc')">Visit Soccer.com</button>
+
+        <!-- World Soccer Shop -->
+        <p><strong>World Soccer Shop</strong>: Offers global team merchandise, lifestyle gear, and exclusive collections from top soccer brands.</p>
+        <button class="button" onclick="openModal('https://martinezworldwide.github.io/url-shortener/wss')">Visit World Soccer Shop</button>
     </div>
 
     <!-- Draggable Modal with iframe -->
