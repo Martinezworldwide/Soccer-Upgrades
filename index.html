@@ -61,15 +61,12 @@
             position: fixed;
             top: 50px;
             left: 50px;
-            width: 80%;
-            height: 80%;
+            width: 300px;
             background-color: white;
             border: 2px solid #004080;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
             z-index: 1000;
-            overflow: hidden;
-            resize: both;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         }
         .modal-header {
             background-color: #004080;
@@ -93,14 +90,17 @@
             border-radius: 5px;
         }
         .modal-body {
-            width: 100%;
-            height: calc(100% - 40px);
-            overflow: hidden;
+            padding: 20px;
+            text-align: center;
         }
-        .modal-body iframe {
-            width: 100%;
-            height: 100%;
+        .modal-body button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #004080;
+            color: white;
             border: none;
+            border-radius: 5px;
+            cursor: pointer;
         }
     </style>
     <script>
@@ -110,20 +110,21 @@
 
         function openModal(url) {
             const modal = document.getElementById('modal');
-            const iframe = document.getElementById('modal-iframe');
+            const proceedButton = document.getElementById('proceed-button');
 
-            // Show the modal and load the external page in the iframe
+            // Show the modal
             modal.style.display = 'block';
-            iframe.src = url;
+
+            // Set the redirect URL for the pop-up window
+            proceedButton.onclick = function() {
+                window.open(url, 'popup', 'width=800,height=600,scrollbars=yes,resizable=yes');
+                closeModal();
+            };
         }
 
         function closeModal() {
             const modal = document.getElementById('modal');
-            const iframe = document.getElementById('modal-iframe');
-
-            // Hide the modal and clear the iframe
             modal.style.display = 'none';
-            iframe.src = '';
         }
 
         function startDrag(e) {
@@ -176,14 +177,15 @@
         <button class="button" onclick="openModal('https://martinezworldwide.github.io/url-shortener/wss')">Visit World Soccer Shop</button>
     </div>
 
-    <!-- Draggable Modal with iframe -->
+    <!-- Draggable Modal -->
     <div id="modal" class="modal">
         <div class="modal-header" onmousedown="startDrag(event)">
-            <h3>External Link</h3>
+            <h3>Redirecting...</h3>
             <button class="close-button" onclick="closeModal()">X</button>
         </div>
         <div class="modal-body">
-            <iframe id="modal-iframe" src=""></iframe>
+            <p>You will be redirected to the external link.</p>
+            <button id="proceed-button">Proceed</button>
         </div>
     </div>
 </body>
