@@ -6,84 +6,53 @@
     <title>Soccer Upgrades</title>
     <style>
         body {
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
-        }
-        .header {
-            background-color: #004080;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        .nav {
-            display: flex;
-            justify-content: center;
-            background-color: #004080;
-            padding: 10px;
-        }
-        .nav a {
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            font-weight: bold;
+            background-color: #f4f4f4;
         }
         .container {
             padding: 20px;
             text-align: center;
         }
-        .external-link-container {
-            position: fixed;
-            top: 10%;
-            left: 10%;
-            width: 80%;
-            height: 80%;
-            background-color: white;
-            border: 2px solid #004080;
-            border-radius: 10px;
-            overflow: hidden;
-            display: none;
-            z-index: 1000;
-        }
-        .close-btn {
-            float: right;
-            background-color: red;
+        .button {
+            margin: 10px auto;
+            padding: 15px 30px;
+            font-size: 16px;
+            background-color: #004080;
             color: white;
-            padding: 5px 10px;
-            cursor: pointer;
             border: none;
-            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #0066cc;
         }
     </style>
     <script>
-        function openExternalLink(url) {
-            const container = document.getElementById('externalLinkContainer');
-            container.style.display = 'block';
-            window.location.href = url; // Full-page redirection within the container
-        }
-
-        function closeContainer() {
-            const container = document.getElementById('externalLinkContainer');
-            container.style.display = 'none';
+        function openMinimizedTab(url) {
+            // Open a small-sized window
+            window.open(url, 'popupWindow', 'width=600,height=400,left=200,top=200');
         }
     </script>
 </head>
 <body>
-    <div class="header">
+    <div class="container">
         <h1>Soccer Upgrades</h1>
-    </div>
-    <div class="nav">
-        <a href="#" onclick="openExternalLink('https://martinezworldwide.github.io/url-shortener/sg.html')">Soccer Garage</a>
-        <a href="#" onclick="openExternalLink('https://martinezworldwide.github.io/url-shortener/uss')">US Soccer Store</a>
-        <a href="#" onclick="openExternalLink('https://martinezworldwide.github.io/url-shortener/sc')">Soccer.com</a>
-        <a href="#" onclick="openExternalLink('https://martinezworldwide.github.io/url-shortener/wss')">World Soccer Shop</a>
-    </div>
+        <p>Explore Top Soccer Stores:</p>
 
-    <!-- External Link Container -->
-    <div id="externalLinkContainer" class="external-link-container">
-        <button class="close-btn" onclick="closeContainer()">X</button>
+        <!-- Soccer Garage -->
+        <button class="button" onclick="openMinimizedTab('https://martinezworldwide.github.io/url-shortener/sg.html')">Visit Soccer Garage</button>
+
+        <!-- US Soccer Store -->
+        <button class="button" onclick="openMinimizedTab('https://martinezworldwide.github.io/url-shortener/uss')">Visit US Soccer Store</button>
+
+        <!-- Soccer.com -->
+        <button class="button" onclick="openMinimizedTab('https://martinezworldwide.github.io/url-shortener/sc')">Visit Soccer.com</button>
+
+        <!-- World Soccer Shop -->
+        <button class="button" onclick="openMinimizedTab('https://martinezworldwide.github.io/url-shortener/wss')">Visit World Soccer Shop</button>
     </div>
 </body>
 </html>
-
 
