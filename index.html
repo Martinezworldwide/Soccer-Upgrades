@@ -61,13 +61,13 @@
             position: fixed;
             top: 50px;
             left: 50px;
-            width: 80%;
-            height: 80%;
+            width: 600px;
+            height: 400px;
             background-color: white;
             border: 2px solid #004080;
             border-radius: 10px;
-            z-index: 1000;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
             overflow: hidden;
             resize: both;
         }
@@ -95,7 +95,11 @@
         .modal-body {
             width: 100%;
             height: calc(100% - 40px);
-            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            padding: 10px;
         }
     </style>
     <script>
@@ -105,18 +109,12 @@
 
         function openModal(url) {
             const modal = document.getElementById('modal');
-            const externalWindow = window.open(url, 'popup', 'width=800,height=600,scrollbars=yes,resizable=yes');
+            const modalBody = document.getElementById('modal-body');
 
-            // Show the modal
             modal.style.display = 'block';
-
-            // Close the modal if the pop-up is closed
-            const checkPopUp = setInterval(() => {
-                if (externalWindow.closed) {
-                    closeModal();
-                    clearInterval(checkPopUp);
-                }
-            }, 500);
+            modalBody.innerHTML = `
+                <p>Redirecting to <a href="${url}" target="_blank">${url}</a>. 
+                Please click the link to continue.</p>`;
         }
 
         function closeModal() {
@@ -177,13 +175,10 @@
     <!-- Draggable Modal -->
     <div id="modal" class="modal">
         <div class="modal-header" onmousedown="startDrag(event)">
-            <h3>External Link Loading...</h3>
+            <h3>External Link</h3>
             <button class="close-button" onclick="closeModal()">X</button>
         </div>
-        <div class="modal-body">
-            <p>The external website is opening in a new window. If the window is blocked, please allow pop-ups.</p>
-        </div>
+        <div id="modal-body" class="modal-body"></div>
     </div>
 </body>
 </html>
-
