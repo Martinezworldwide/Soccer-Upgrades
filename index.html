@@ -93,15 +93,6 @@
             padding: 20px;
             text-align: center;
         }
-        .modal-body button {
-            margin-top: 10px;
-            padding: 10px 20px;
-            background-color: #004080;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
     </style>
     <script>
         // Draggable Modal Script
@@ -115,10 +106,9 @@
             // Show the modal
             modal.style.display = 'block';
 
-            // Set the redirect URL for the pop-up window
+            // Set the redirect URL for the same tab
             proceedButton.onclick = function() {
-                window.open(url, 'popup', 'width=800,height=600,scrollbars=yes,resizable=yes');
-                closeModal();
+                window.location.href = url;
             };
         }
 
