@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Soccer Upgrades Forums</title>
+    <title>Soccer Upgrades</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -30,4 +30,65 @@
             font-weight: bold;
         }
         nav a:hover {
-            background-color: #0066
+            background-color: #0066cc;
+            border-radius: 5px;
+        }
+        .container {
+            padding: 20px;
+            text-align: center;
+        }
+        .button {
+            display: block;
+            margin: 10px auto;
+            padding: 15px 30px;
+            font-size: 16px;
+            background-color: #004080;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #0066cc;
+        }
+        p {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+    </style>
+    <script>
+        function openPopup(url) {
+            window.open(url, '_blank', 'width=800,height=600');
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Soccer Upgrades!</h1>
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="forums.html">Forums</a>
+    </nav>
+    <div class="container">
+        <h2>Explore Top Soccer Stores</h2>
+
+        <!-- Soccer Garage -->
+        <p><strong>Soccer Garage</strong>: Offers a variety of soccer gear, from cleats to apparel, with competitive pricing and frequent sales.</p>
+        <button class="button" onclick="openPopup('https://sovrn.co/5abl8yk')">Visit Soccer Garage</button>
+
+        <!-- US Soccer Store -->
+        <p><strong>US Soccer Store</strong>: The official store for US Soccer merchandise, including jerseys, training gear, and fan accessories.</p>
+        <button class="button" onclick="openPopup('https://sovrn.co/2dtem34')">Visit US Soccer Store</button>
+
+        <!-- Soccer.com -->
+        <p><strong>Soccer.com</strong>: Known for its wide selection of soccer shoes, training gear, and personalized jerseys for all ages.</p>
+        <button class="button" onclick="openPopup('https://sovrn.co/cigj1qo')">Visit Soccer.com</button>
+
+        <!-- World Soccer Shop -->
+        <p><strong>World Soccer Shop</strong>: Offers global team merchandise, lifestyle gear, and exclusive collections from top soccer brands.</p>
+        <button class="button" onclick="openPopup('https://sovrn.co/9smxc6y')">Visit World Soccer Shop</button>
+    </div>
+</body>
+</html>
+
